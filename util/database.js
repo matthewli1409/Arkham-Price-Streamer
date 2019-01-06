@@ -1,10 +1,11 @@
 const mongodb = require('mongodb');
+const config = require('./config.json');
 
 const MongoClient = mongodb.MongoClient;
 let _db;
 
 const mongoConnect = (cb) => {
-    MongoClient.connect('', {
+    MongoClient.connect(config.mongoDBLogin, {
             useNewUrlParser: true
         })
         .then(client => {
